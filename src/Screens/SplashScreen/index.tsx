@@ -1,9 +1,7 @@
-import {View, Image, useColorScheme} from 'react-native';
+import {Image, View} from 'react-native';
 import CustomText from '../../Shared/CustomText';
 
 const SplashScreen = (): React.JSX.Element => {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
     <View
       style={{
@@ -33,18 +31,14 @@ const SplashScreen = (): React.JSX.Element => {
             style={{width: '90%', height: 400, padding: 10}}
             source={require('../../Assets/chat.png')}
           />
-          <CustomText
-            style={{fontSize: 30, color: isDarkMode ? 'white' : 'black'}}>
+          <CustomText style={{fontSize: 30, color: 'black'}}>
             Real Time Chat™
           </CustomText>
-          <CustomText
-            style={{fontSize: 18, color: isDarkMode ? 'white' : 'gray'}}>
+          <CustomText style={{fontSize: 18, color: 'gray'}}>
             Welcome to the RealTime Chat App
           </CustomText>
         </View>
-        <CustomText style={{color: isDarkMode ? 'white' : 'gray'}}>
-          Powerd by MKX
-        </CustomText>
+        <CustomText style={{color: 'gray'}}>Powerd by MKX</CustomText>
       </View>
     </View>
   );

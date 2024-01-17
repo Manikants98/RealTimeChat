@@ -1,9 +1,10 @@
 import {View} from 'react-native';
 import {Button, Divider, TextInput} from 'react-native-paper';
 import CustomText from '../../Shared/CustomText';
+
 import {primary, secondary} from '../../Helper';
 
-const SignUpScreen = ({navigation}) => {
+const SignInScreen = ({navigation}) => {
   return (
     <View
       style={{
@@ -29,22 +30,9 @@ const SignUpScreen = ({navigation}) => {
           textAlign: 'center',
           fontSize: 40,
         }}>
-        Sign Up
+        Sign In
       </CustomText>
-      <TextInput
-        id="first_name"
-        outlineColor={primary}
-        mode="outlined"
-        label="First Name"
-        placeholder="Enter First Name"
-      />
-      <TextInput
-        id="last_name"
-        outlineColor={primary}
-        mode="outlined"
-        label="Last Name"
-        placeholder="Enter Last Name"
-      />
+
       <TextInput
         id="email"
         outlineColor={primary}
@@ -52,13 +40,7 @@ const SignUpScreen = ({navigation}) => {
         label="Email"
         placeholder="Enter Email"
       />
-      <TextInput
-        id="phone"
-        outlineColor={primary}
-        mode="outlined"
-        label="Phone"
-        placeholder="Enter Phone"
-      />
+
       <TextInput
         id="password"
         outlineColor={primary}
@@ -78,10 +60,10 @@ const SignUpScreen = ({navigation}) => {
         style={{marginVertical: 10}}
         buttonColor={primary}
         mode="contained"
-        onPress={() => navigation.navigate('SignIn')}>
-        Sign In
+        onPress={() => navigation.navigate('SignUp')}>
+        Sign Up
       </Button>
     </View>
   );
 };
-export default SignUpScreen;
+export default SignInScreen;

@@ -52,12 +52,10 @@ const CustomText = ({
 }: TextProps) => {
   const theme = useTheme();
   const styles = createStyles(theme);
-  const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <NativeText
       style={StyleSheet.flatten([
-        {color: isDarkMode ? 'white' : 'black'},
         style,
         xxs && styles.xxs,
         xs && styles.xs,
