@@ -1,22 +1,19 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, useColorScheme} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import SignInScreen from './Screens/SignInScreen';
 import SignUpScreen from './Screens/SignUpScreen';
 import SplashScreen from './Screens/SplashScreen';
-import SignInScreen from './Screens/SignInScreen';
+import {routes} from './Routes';
 
 const App = (): React.JSX.Element => {
   const [isSplashScreen, setIsSplashScreen] = useState(false);
-  const isDarkMode = useColorScheme() === 'dark';
-  const style = {backgroundColor: isDarkMode ? Colors.darker : Colors.lighter};
 
   useEffect(() => {
     setIsSplashScreen(true);
     setTimeout(() => {
       setIsSplashScreen(false);
-    }, 3000);
+    }, 5000);
   }, []);
   const Stack = createNativeStackNavigator();
 
@@ -33,6 +30,16 @@ const App = (): React.JSX.Element => {
           name="SignIn"
           component={SignInScreen}
         />
+        {routes?.map(route => {
+          return (
+            <Stack.Screen
+              key={route.id}
+              options={{headerShown: false}}
+              name={route.name}
+              component={route.component}
+            />
+          );
+        })}
       </Stack.Navigator>
     </NavigationContainer>
   );

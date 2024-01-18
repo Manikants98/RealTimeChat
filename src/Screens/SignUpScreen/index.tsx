@@ -70,7 +70,8 @@ const SignUpScreen = ({navigation}) => {
       <Button
         style={{marginVertical: 10}}
         buttonColor={primary}
-        mode="contained">
+        mode="contained"
+        onPress={() => navigation.navigate('Chat')}>
         Submit
       </Button>
       <Divider style={{marginVertical: 10}} />
