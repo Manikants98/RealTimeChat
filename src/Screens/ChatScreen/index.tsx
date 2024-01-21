@@ -5,15 +5,29 @@ import CustomText from '@/Shared/CustomText';
 import CustomView from '@/Shared/CustomView';
 import classNames from 'classnames';
 import moment from 'moment';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { ScrollView, TouchableHighlight } from 'react-native';
-import { Avatar, Divider } from 'react-native-paper';
+import { Avatar, Divider, Drawer } from 'react-native-paper';
 
 const ChatScreen = ({ navigation }) => {
+  const [ooen, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
   const chatList = data?.filter(i =>
     i.title.toLowerCase().includes(searchQuery.toLowerCase()),
   );
+  const drawerRef = useRef(null);
+
+  const openDrawer = () => {
+    if (drawerRef.current) {
+      drawerRef.current.openDrawer();
+    }
+  };
+
+  const closeDrawer = () => {
+    if (drawerRef.current) {
+      drawerRef.current.closeDrawer();
+    }
+  };
   return (
     <CustomView className="flex flex-col bg-white h-screen">
       <CustomView className="px-4 py-2 bg-white">
@@ -22,6 +36,7 @@ const ChatScreen = ({ navigation }) => {
           onChangeText={setSearchQuery}
           placeholder="Search on chat"
           traileringIcon="menu"
+          onTraileringIconPress={() => closeDrawer()}
           className="bg-gray-200 px-2"
         />
       </CustomView>
@@ -32,7 +47,7 @@ const ChatScreen = ({ navigation }) => {
             <CustomView key={item.id}>
               <TouchableHighlight
                 underlayColor={secondary}
-                onPress={() => navigation.navigate('Message')}>
+                onPress={() => navigation.navigate('Message', item)}>
                 <CustomView className="flex flex-row gap-2 p-2 items-center">
                   <Avatar.Image
                     size={50}

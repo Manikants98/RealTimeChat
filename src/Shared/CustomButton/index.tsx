@@ -1,10 +1,5 @@
-//@ts-nocheck
 import React from 'react';
 import { Button, ButtonProps } from 'react-native-paper';
-
-interface Props extends ButtonProps {
-  className?: string;
-}
 
 const CustomButton = ({
   mode = 'elevated',
@@ -12,7 +7,7 @@ const CustomButton = ({
   children,
   className = '',
   ...rest
-}: Props) => {
+}: ButtonProps) => {
   return (
     <Button className={className} style={style} mode={mode} {...rest}>
       {children}

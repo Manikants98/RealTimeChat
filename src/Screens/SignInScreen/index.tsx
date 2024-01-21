@@ -1,10 +1,10 @@
 //@ts-nocheck
 import React from 'react';
 import { Divider } from 'react-native-paper';
-import CustomButton from '@Shared/CustomButton';
-import CustomInput from '@Shared/CustomInput';
-import CustomText from '@Shared/CustomText';
-import CustomView from '@Shared/CustomView';
+import CustomButton from '@/Shared/CustomButton';
+import CustomInput from '@/Shared/CustomInput';
+import CustomText from '@/Shared/CustomText';
+import CustomView from '@/Shared/CustomView';
 
 const SignInScreen = ({ navigation }: any) => {
   return (
