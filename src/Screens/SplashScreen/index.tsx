@@ -1,9 +1,11 @@
-import {Image, View} from 'react-native';
-import CustomText from '../../Shared/CustomText';
+import CustomText from '@/Shared/CustomText';
+import CustomView from '@/Shared/CustomView';
+import React from 'react';
+import { Image } from 'react-native';
 
 const SplashScreen = (): React.JSX.Element => {
   return (
-    <View
+    <CustomView
       style={{
         height: '100%',
         display: 'flex',
@@ -12,7 +14,7 @@ const SplashScreen = (): React.JSX.Element => {
         gap: 10,
         alignItems: 'center',
       }}>
-      <View
+      <CustomView
         style={{
           width: '100%',
           height: '80%',
@@ -20,7 +22,7 @@ const SplashScreen = (): React.JSX.Element => {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <View
+        <CustomView
           style={{
             width: '100%',
             display: 'flex',
@@ -28,19 +30,19 @@ const SplashScreen = (): React.JSX.Element => {
             alignItems: 'center',
           }}>
           <Image
-            style={{width: '90%', height: 400, padding: 10}}
+            style={{ width: '90%', height: 400, padding: 10 }}
             source={require('../../Assets/chat.png')}
           />
-          <CustomText style={{fontSize: 30, color: 'black'}}>
+          <CustomText style={{ fontSize: 30, color: 'black' }}>
             Real Time Chat™
           </CustomText>
-          <CustomText style={{fontSize: 18, color: 'gray'}}>
+          <CustomText style={{ fontSize: 18, color: 'gray' }}>
             Welcome to the RealTime Chat App
           </CustomText>
-        </View>
-        <CustomText style={{color: 'gray'}}>Powerd by MKX</CustomText>
-      </View>
-    </View>
+        </CustomView>
+        <CustomText style={{ color: 'gray' }}>Powerd by MKX</CustomText>
+      </CustomView>
+    </CustomView>
   );
 };
 export default SplashScreen;

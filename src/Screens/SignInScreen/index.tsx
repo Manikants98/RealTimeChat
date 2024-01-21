@@ -1,70 +1,52 @@
-import {View} from 'react-native';
-import {Button, Divider, TextInput} from 'react-native-paper';
-import CustomText from '../../Shared/CustomText';
+//@ts-nocheck
+import React from 'react';
+import { Divider } from 'react-native-paper';
+import CustomButton from '@Shared/CustomButton';
+import CustomInput from '@Shared/CustomInput';
+import CustomText from '@Shared/CustomText';
+import CustomView from '@Shared/CustomView';
 
-import {primary, secondary} from '../../Helper';
-
-const SignInScreen = ({navigation}) => {
+const SignInScreen = ({ navigation }: any) => {
   return (
-    <View
+    <CustomView
       style={{
         height: '100%',
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
-        backgroundColor: secondary,
-        gap: 10,
+        gap: 6,
         padding: 20,
       }}>
-      <CustomText
-        style={{
-          textAlign: 'center',
-          fontSize: 30,
-          color: primary,
-        }}>
-        Real Time Chat™
-      </CustomText>
-      <CustomText
-        style={{
-          color: primary,
-          textAlign: 'center',
-          fontSize: 40,
-        }}>
-        Sign In
-      </CustomText>
+      <CustomView className="flex flex-col items-center justify-center">
+        <CustomText
+          style={{
+            fontSize: 40,
+          }}>
+          Sign In
+        </CustomText>
+        <CustomText>Welcome back! Let's get you signed in.</CustomText>
+      </CustomView>
 
-      <TextInput
-        id="email"
-        outlineColor={primary}
-        mode="outlined"
-        label="Email"
-        placeholder="Enter Email"
-      />
+      <CustomInput id="email" label="Email" placeholder="Enter Email" />
 
-      <TextInput
+      <CustomInput
         id="password"
-        outlineColor={primary}
-        mode="outlined"
         label="Password"
         placeholder="Enter Password"
         secureTextEntry
       />
-      <Button
-        style={{marginVertical: 10}}
-        buttonColor={primary}
-        mode="contained"
+      <CustomButton
+        style={{ marginVertical: 10 }}
         onPress={() => navigation.navigate('Chat')}>
         Submit
-      </Button>
-      <Divider style={{marginVertical: 10}} />
-      <Button
-        style={{marginVertical: 10}}
-        buttonColor={primary}
-        mode="contained"
+      </CustomButton>
+      <Divider style={{ marginVertical: 10 }} />
+      <CustomButton
+        style={{ marginVertical: 10 }}
         onPress={() => navigation.navigate('SignUp')}>
         Sign Up
-      </Button>
-    </View>
+      </CustomButton>
+    </CustomView>
   );
 };
 export default SignInScreen;
