@@ -7,7 +7,12 @@ module.exports = {
     './src/Components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        dark: '#121212',
+        light: '#E5E7EB',
+      },
+    },
   },
   plugins: [require('nativewind/tailwind/css')],
 };

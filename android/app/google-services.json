@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "850706067133",
+    "project_id": "chatmkx",
+    "storage_bucket": "chatmkx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850706067133:android:721bb61bf101358eb051d4",
+        "android_client_info": {
+          "package_name": "com.nativemkx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASZzkpp0UF0fNWCQBhdptkpdLuMutyV9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
