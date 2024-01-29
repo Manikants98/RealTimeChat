@@ -29,18 +29,16 @@ interface Message {
 const MessageScreen = ({ navigation }: any) => {
   const [message, setMessage] = useState('');
   const messagsRef = firebase.database().ref('messages');
-  const [messages, setMesages] = useState<[Message]>();
+  const [messages, setMesages] = useState < [Message] > ();
   const [visible, setVisible] = React.useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const openMenu = () => setVisible(true);
 
   const closeMenu = () => setVisible(false);
 
-  const {
-    params: { name, email, created_at },
-  }: RouteProp<{}> = useRoute();
+  const { params: { name, email }, }: RouteProp<{}> = useRoute();
 
-  const scrollViewRef = useRef<ScrollView | null>(null);
+  const scrollViewRef = useRef < ScrollView | null > (null);
   const lastMessage = messages?.[messages.length - 1];
   const nextId = lastMessage ? lastMessage.id + 1 : 1;
   const reqBody: Message = {
@@ -115,9 +113,8 @@ const MessageScreen = ({ navigation }: any) => {
 
     return () => messagsRef.off('value', onValueChange);
   };
-  useEffect(() => {
-    getMesssages();
-  }, []);
+  useEffect(() => { getMesssages() }, []);
+
   const theme = useTheme();
   const handleRefresh = () => {
     setRefreshing(true);
@@ -147,7 +144,7 @@ const MessageScreen = ({ navigation }: any) => {
               </CustomView>
             }
           />
-          <Appbar.Action icon="magnify" onPress={() => {}} />
+          <Appbar.Action icon="magnify" onPress={() => { }} />
           <Menu
             visible={visible}
             onDismiss={closeMenu}
@@ -163,9 +160,7 @@ const MessageScreen = ({ navigation }: any) => {
         <CustomView className="flex flex-col justify-end min-h-full pb-32">
           <ScrollView
             refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={handleRefresh}
+              <RefreshControl refreshing={refreshing} onRefresh={handleRefresh}
               />
             }
             className="px-2"
@@ -186,7 +181,7 @@ const MessageScreen = ({ navigation }: any) => {
           <CustomView
             style={{ backgroundColor: theme.colors.elevation.level1 }}
             className="flex flex-row items-center py-1">
-            <IconButton onPress={() => {}} icon="emoticon-excited-outline" />
+            <IconButton onPress={() => { }} icon="emoticon-excited-outline" />
             <TextInput
               value={message}
               multiline

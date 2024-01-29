@@ -31,12 +31,7 @@ const SignUpScreen = ({ navigation }: any) => {
     }
     try {
       const newUserKey: any = usersRef.push().key;
-      const userData = {
-        name,
-        email,
-        password,
-        created_at: moment(new Date()).format(),
-      };
+      const userData = { name, email, password, created_at: moment(new Date()).format() };
       await usersRef.child(newUserKey).set(userData);
       console.log('User data inserted successfully!');
       await AsyncStorage.setItem('user', JSON.stringify(userData));
@@ -59,46 +54,22 @@ const SignUpScreen = ({ navigation }: any) => {
   useEffect(() => {
     isLogined();
   }, []);
+
   return (
-    <CustomView
-      style={{ gap: 16, backgroundColor: theme.colors.surface }}
-      className="flex flex-col h-screen justify-center p-4">
+    <CustomView style={{ gap: 16, backgroundColor: theme.colors.surface }} className="flex flex-col h-screen justify-center p-4">
       <Toast />
       <CustomView className="flex flex-col items-center justify-center">
         <CustomText className="text-5xl">Sign Up</CustomText>
         <CustomText>Ready to get started? Sign up now!</CustomText>
       </CustomView>
-
-      <CustomInput
-        id="name"
-        label="Name"
-        placeholder="Enter Name"
-        value={name}
-        onChangeText={setName}
-      />
-
-      <CustomInput
-        id="email"
-        label="Email"
-        placeholder="Enter Email"
-        value={email}
-        onChangeText={setEmail}
-      />
+      <CustomInput id="name" label="Name" placeholder="Enter Name" value={name} onChangeText={setName} />
+      <CustomInput id="email" label="Email" placeholder="Enter Email" value={email} onChangeText={setEmail} />
       <CustomInput id="phone" label="Phone" placeholder="Enter Phone" />
-      <CustomInput
-        id="password"
-        label="Password"
-        placeholder="Enter Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+      <CustomInput id="password" label="Password" placeholder="Enter Password" value={password} onChangeText={setPassword} secureTextEntry />
       <CustomButton onPress={() => handleSignUp()}>Submit</CustomButton>
       <Divider />
       <CustomText className="text-center">Already have an account</CustomText>
-      <CustomButton onPress={() => navigation.navigate('SignIn')}>
-        Sign In
-      </CustomButton>
+      <CustomButton onPress={() => navigation.navigate('SignIn')}>Sign In</CustomButton>
     </CustomView>
   );
 };

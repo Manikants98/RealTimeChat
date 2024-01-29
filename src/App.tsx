@@ -1,17 +1,15 @@
-//@ts-nocheck
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import { PaperProvider } from 'react-native-paper';
 import Toast from 'react-native-toast-message';
 import { routes } from './Routes';
-import SignInScreen from './Screens/SignInScreen';
-import SignUpScreen from './Screens/SignUpScreen';
 import SplashScreen from './Screens/SplashScreen';
 import CustomStatus from './Shared/CustomStatus';
 
 const App = () => {
   const [isSplashScreen, setIsSplashScreen] = useState(false);
+  const Stack = createNativeStackNavigator();
 
   useEffect(() => {
     setIsSplashScreen(true);
@@ -19,7 +17,6 @@ const App = () => {
       setIsSplashScreen(false);
     }, 3000);
   }, []);
-  const Stack = createNativeStackNavigator();
 
   return (
     <PaperProvider>
@@ -35,16 +32,9 @@ const App = () => {
               animation: 'none',
             }}
             initialRouteName="SignUp">
-            <Stack.Screen name="SignUp" component={SignUpScreen} />
-            <Stack.Screen name="Splash" component={SplashScreen} />
-            <Stack.Screen name="SignIn" component={SignInScreen} />
-            {routes?.map(route => {
+            {routes?.map(({ id, name, component }) => {
               return (
-                <Stack.Screen
-                  key={route.id}
-                  name={route.name}
-                  component={route.component}
-                />
+                <Stack.Screen key={id} name={name} component={component} />
               );
             })}
           </Stack.Navigator>
